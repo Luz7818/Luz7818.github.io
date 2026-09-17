@@ -1,0 +1,1963 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>李牧泽 Muzhe Li | Personal Homepage</title>
+  <meta name="description" content="李牧泽，东南大学交通学院交通工程（茅以升班）本科生，研究方向包括大语言模型智能体与交通优化、多模式交通仿真、交通时空预测与交通安全。">
+  <style>
+    :root {
+      --paper: #fbfbf7;
+      --mist: #f1f5ef;
+      --ink: #231815;
+      --muted: #68605a;
+      --line: rgba(180, 183, 185, 0.48);
+      --teal: #587558;
+      --teal-dark: #3f5d45;
+      --coral: #f6ab00;
+      --gold: #fdd000;
+      --blue: #151e49;
+      --sand: #ad986e;
+      --gray: #b4b7b9;
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(35, 24, 21, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(88, 117, 88, 0.035), transparent 420px),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Inter", "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .site-layout {
+      display: grid;
+      grid-template-columns: minmax(320px, 26vw) minmax(0, 1fr);
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    .profile-sidebar {
+      position: relative;
+      isolation: isolate;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      border-right: 1px solid rgba(180, 183, 185, 0.72);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 239, 0.94)),
+        var(--mist);
+    }
+
+    .profile-sidebar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        linear-gradient(90deg, rgba(88, 117, 88, 0.065) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(88, 117, 88, 0.065) 1px, transparent 1px);
+      background-size: 42px 42px;
+      pointer-events: none;
+    }
+
+    .profile-sidebar::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 3;
+      height: 5px;
+      background: linear-gradient(90deg, var(--teal) 0 43%, var(--gold) 43% 62%, var(--blue) 62% 82%, var(--sand) 82% 100%);
+    }
+
+    .sidebar-pine {
+      position: absolute;
+      z-index: -2;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .sidebar-pine {
+      top: 72px;
+      left: -82px;
+      width: 230px;
+      opacity: 0.1;
+      transform: rotate(-5deg);
+    }
+
+    .profile-sidebar__inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 14px;
+      width: 100%;
+      height: 100%;
+      padding: 30px clamp(26px, 3vw, 48px);
+    }
+
+    .profile-sidebar .hero-lockup {
+      width: min(245px, 100%);
+      margin: 0 0 2px;
+    }
+
+    .profile-sidebar .portrait-wrap {
+      align-self: stretch;
+      justify-items: start;
+    }
+
+    .profile-sidebar .portrait-panel {
+      width: min(230px, 82%);
+      margin: 0;
+      box-shadow: 0 18px 44px rgba(35, 24, 21, 0.16);
+    }
+
+    .profile-sidebar .portrait-caption {
+      left: 14px;
+      right: 14px;
+      bottom: 12px;
+    }
+
+    .profile-sidebar .portrait-caption strong {
+      font-size: 0.96rem;
+    }
+
+    .profile-sidebar .school-mark {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+    }
+
+    .profile-sidebar .motto-mark {
+      width: min(215px, 78%);
+      margin: 14px 0 0;
+      opacity: 0.76;
+    }
+
+    .sidebar-copy {
+      width: 100%;
+    }
+
+    .profile-sidebar .eyebrow {
+      margin: 0 0 9px;
+      font-size: 0.78rem;
+    }
+
+    .profile-sidebar .eyebrow::before {
+      width: 28px;
+    }
+
+    .profile-sidebar h1 {
+      margin-bottom: 0;
+      font-size: 2.75rem;
+    }
+
+    .profile-sidebar h1 span {
+      margin-top: 7px;
+      font-size: 1.12rem;
+    }
+
+    .profile-sidebar .hero-actions {
+      gap: 8px;
+      margin: 2px 0 0;
+    }
+
+    .profile-sidebar .button {
+      flex: 0 0 auto;
+      min-height: 38px;
+      padding: 7px 10px;
+      font-size: 0.82rem;
+      box-shadow: 0 6px 16px rgba(35, 24, 21, 0.055);
+    }
+
+    .profile-sidebar .button svg {
+      width: 17px;
+      height: 17px;
+      flex-basis: 17px;
+    }
+
+    .content-pane {
+      min-width: 0;
+      height: 100vh;
+      height: 100dvh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      scrollbar-gutter: stable;
+      background: var(--paper);
+    }
+
+    .content-pane .shell {
+      width: min(1060px, calc(100% - 56px));
+    }
+
+    .content-pane .section,
+    .content-pane #top {
+      scroll-margin-top: 76px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 251, 247, 0.9);
+      border-bottom: 1px solid rgba(180, 183, 185, 0.55);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal) 0 44%, var(--gold) 44% 62%, var(--blue) 62% 82%, var(--sand) 82% 100%);
+      opacity: 0.9;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.2;
+      font-weight: 760;
+    }
+
+    .brand-emblem {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text strong {
+      font-size: 1rem;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 520;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      border-radius: 999px;
+      padding: 8px 12px;
+    }
+
+    .nav-links a:hover {
+      background: var(--mist);
+      color: var(--ink);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(88, 117, 88, 0.08) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(88, 117, 88, 0.08) 1px, transparent 1px),
+        #f4f7f1;
+      background-size: 56px 56px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, rgba(251, 251, 247, 0.98) 0%, rgba(251, 251, 247, 0.86) 46%, rgba(241, 245, 239, 0.7) 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .campus-silhouette {
+      position: absolute;
+      right: -24px;
+      bottom: -2px;
+      z-index: 0;
+      width: min(720px, 68%);
+      opacity: 0.44;
+      pointer-events: none;
+    }
+
+    .campus-silhouette-vertical {
+      position: absolute;
+      left: -32px;
+      top: 104px;
+      z-index: 0;
+      width: min(190px, 20%);
+      opacity: 0.34;
+      pointer-events: none;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 96px;
+      right: 34px;
+      z-index: 0;
+      width: clamp(160px, 20vw, 300px);
+      opacity: 0.045;
+      pointer-events: none;
+    }
+
+    .hero-lockup {
+      width: min(330px, 76vw);
+      margin-bottom: 22px;
+      opacity: 0.94;
+      filter: drop-shadow(0 8px 16px rgba(35, 24, 21, 0.08));
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+      align-items: center;
+      gap: 42px;
+      min-height: 610px;
+      padding: 72px 0 66px;
+    }
+
+    .hero-summary {
+      position: relative;
+    }
+
+    .hero-summary .kicker {
+      margin-bottom: 12px;
+    }
+
+    .hero-summary h2 {
+      max-width: 720px;
+      margin-bottom: 22px;
+      font-size: 2.8rem;
+      line-height: 1.16;
+    }
+
+    .hero-summary .lead {
+      max-width: 760px;
+    }
+
+    .hero-research {
+      position: relative;
+      padding-left: 26px;
+      border-left: 1px solid rgba(88, 117, 88, 0.28);
+    }
+
+    .hero-research-label {
+      display: block;
+      margin-bottom: 15px;
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .hero-research .research-map {
+      grid-template-columns: 1fr;
+      width: 100%;
+      margin-top: 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--teal-dark);
+      font-weight: 760;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: var(--coral);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: 4rem;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--teal);
+      font-size: 1.55rem;
+      line-height: 1.35;
+      font-weight: 680;
+      margin-top: 12px;
+    }
+
+    .lead {
+      color: #3c3731;
+      font-size: 1.12rem;
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 15px;
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 720;
+      box-shadow: 0 8px 20px rgba(35, 24, 21, 0.06);
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(35, 24, 21, 0.12);
+    }
+
+    .button svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 19px;
+      stroke-width: 2;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--teal), var(--gold), var(--blue), var(--sand));
+      max-width: 760px;
+    }
+
+    .metric {
+      min-height: 96px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--teal-dark);
+      font-size: 1.6rem;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .campus-band {
+      position: relative;
+      overflow: hidden;
+      height: 68px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f4f7f1 100%);
+    }
+
+    .campus-band::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal) 0 38%, var(--gold) 38% 56%, var(--blue) 56% 76%, var(--sand) 76% 100%);
+    }
+
+    .campus-band img {
+      width: min(980px, 94vw);
+      height: 68px;
+      margin: 0 auto;
+      opacity: 0.22;
+      object-fit: contain;
+      object-position: center bottom;
+    }
+
+    .portrait-wrap {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .portrait-panel {
+      position: relative;
+      width: min(430px, 100%);
+      border: 1px solid rgba(180, 183, 185, 0.45);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-panel::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 34%;
+      background: linear-gradient(0deg, rgba(35, 24, 21, 0.7), rgba(35, 24, 21, 0));
+      pointer-events: none;
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .portrait-caption {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 16px;
+      z-index: 1;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--white);
+    }
+
+    .portrait-caption strong {
+      display: block;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .portrait-caption span {
+      display: block;
+      font-size: 0.82rem;
+      opacity: 0.9;
+    }
+
+    .school-mark {
+      width: 86px;
+      height: 86px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 50%;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .research-map {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      width: min(480px, 100%);
+      margin-top: 18px;
+    }
+
+    .motto-mark {
+      width: min(320px, 78%);
+      margin: 20px auto 0;
+      opacity: 0.72;
+      filter: drop-shadow(0 8px 18px rgba(35, 24, 21, 0.08));
+    }
+
+    .map-node {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--muted);
+      font-size: 0.92rem;
+      box-shadow: 0 10px 24px rgba(35, 24, 21, 0.06);
+    }
+
+    .map-node b {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .section {
+      position: relative;
+      overflow: hidden;
+      padding: 82px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section > .shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section.alt {
+      background: #f6f7f3;
+    }
+
+    .campus-mark::after {
+      content: "";
+      position: absolute;
+      top: 44px;
+      right: max(12px, calc((100vw - 1120px) / 2));
+      z-index: 0;
+      width: clamp(150px, 18vw, 250px);
+      aspect-ratio: 1 / 1;
+      background: url("assets/东南大学黑白校标.svg") center / contain no-repeat;
+      opacity: 0.035;
+      pointer-events: none;
+    }
+
+    .campus-pattern::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 12px;
+      z-index: 0;
+      height: 48px;
+      background: url("assets/大礼堂-辅助-连续.svg") center bottom / auto 42px repeat-x;
+      opacity: 0.26;
+      pointer-events: none;
+    }
+
+    .pine-mark::before {
+      content: "";
+      position: absolute;
+      left: max(-56px, calc((100vw - 1240px) / 2));
+      bottom: 8px;
+      z-index: 0;
+      width: min(420px, 36vw);
+      height: 330px;
+      background: url("assets/六朝松.svg") center / contain no-repeat;
+      opacity: 0.13;
+      pointer-events: none;
+    }
+
+    .pine-mark-right::before {
+      content: "";
+      position: absolute;
+      right: max(-42px, calc((100vw - 1260px) / 2));
+      top: 28px;
+      z-index: 0;
+      width: min(390px, 34vw);
+      height: 310px;
+      background: url("assets/六朝松.svg") center / contain no-repeat;
+      opacity: 0.12;
+      transform: scaleX(-1);
+      pointer-events: none;
+    }
+
+    .hall-horizontal::before {
+      content: "";
+      position: absolute;
+      right: max(-70px, calc((100vw - 1300px) / 2));
+      bottom: 18px;
+      z-index: 0;
+      width: min(560px, 46vw);
+      height: 140px;
+      background: url("assets/大礼堂-剪影-横向.svg") center / contain no-repeat;
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .hall-vertical::before {
+      content: "";
+      position: absolute;
+      left: max(-28px, calc((100vw - 1240px) / 2));
+      top: 42px;
+      z-index: 0;
+      width: min(190px, 16vw);
+      height: 320px;
+      background: url("assets/大礼堂-剪影-纵向.svg") center / contain no-repeat;
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .contact-campus::after {
+      content: "";
+      position: absolute;
+      right: max(12px, calc((100vw - 1120px) / 2));
+      bottom: 24px;
+      z-index: 0;
+      width: min(430px, 44vw);
+      height: 156px;
+      background: url("assets/大礼堂-辅助-独立.svg") center / contain no-repeat;
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .contact-lockup {
+      width: min(430px, 78vw);
+      margin: -8px 0 26px;
+      opacity: 0.9;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(200px, 0.38fr) 1fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 32px;
+    }
+
+    .kicker {
+      color: var(--coral);
+      font-weight: 780;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 2.35rem;
+      line-height: 1.16;
+      margin-bottom: 0;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 780px;
+      margin-bottom: 0;
+      font-size: 1.02rem;
+    }
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .interest {
+      min-height: 138px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      background: var(--white);
+    }
+
+    .interest .num {
+      color: var(--gold);
+      font-weight: 820;
+      margin-bottom: 18px;
+    }
+
+    .interest h3 {
+      margin-bottom: 8px;
+      line-height: 1.3;
+      font-size: 1.06rem;
+    }
+
+    .interest p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 0;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .highlight {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      background: var(--white);
+      min-height: 210px;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .highlight:hover {
+      border-color: rgba(88, 117, 88, 0.42);
+      box-shadow: 0 16px 34px rgba(35, 24, 21, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .highlight:focus-visible {
+      outline: 3px solid rgba(88, 117, 88, 0.28);
+      outline-offset: 3px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: var(--mist);
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 780;
+      margin-bottom: 16px;
+    }
+
+    .tag.coral {
+      background: #faeeee;
+      color: var(--coral);
+    }
+
+    .tag.gold {
+      background: #fbf1dc;
+      color: var(--gold);
+    }
+
+    .tag.blue {
+      background: #e8f2f6;
+      color: var(--blue);
+    }
+
+    .highlight h3 {
+      font-size: 1.1rem;
+      line-height: 1.32;
+      margin-bottom: 12px;
+    }
+
+    .highlight p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 0;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      background: var(--white);
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .timeline-item:hover {
+      border-color: rgba(88, 117, 88, 0.42);
+      box-shadow: 0 16px 34px rgba(35, 24, 21, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .timeline-item:focus-visible {
+      outline: 3px solid rgba(88, 117, 88, 0.28);
+      outline-offset: 3px;
+    }
+
+    .time {
+      color: var(--teal-dark);
+      font-weight: 820;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 8px;
+      line-height: 1.35;
+      font-size: 1.12rem;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--white);
+    }
+
+    .panel h3 {
+      margin-bottom: 14px;
+      font-size: 1.12rem;
+    }
+
+    .campus-line-art {
+      width: 100%;
+      max-height: 84px;
+      margin-top: 22px;
+      opacity: 0.18;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-mark {
+      width: min(220px, 46vw);
+      opacity: 0.34;
+    }
+
+    .edu-card {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .edu-card img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: var(--teal);
+    }
+
+    .edu-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .fact-list,
+    .plain-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .fact-list li,
+    .plain-list li {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      color: var(--muted);
+    }
+
+    .fact-list b,
+    .plain-list b {
+      color: var(--ink);
+      min-width: 78px;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: minmax(96px, 0.14fr) 1fr;
+      gap: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      background: var(--white);
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    a.publication:hover {
+      border-color: rgba(88, 117, 88, 0.42);
+      box-shadow: 0 16px 34px rgba(35, 24, 21, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .publication.pending-link {
+      cursor: default;
+    }
+
+    .publication-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .venue {
+      color: var(--teal-dark);
+      font-weight: 850;
+    }
+
+    .rank {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: var(--mist);
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .rank.first {
+      background: #faeeee;
+      color: var(--coral);
+    }
+
+    .publication h3 {
+      margin-bottom: 8px;
+      font-size: 1.06rem;
+      line-height: 1.34;
+    }
+
+    .publication p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 8px;
+    }
+
+    .publication p:last-child {
+      margin-bottom: 0;
+    }
+
+    .authors b {
+      color: var(--ink);
+      font-weight: 760;
+    }
+
+    .honor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .honor-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      background: var(--white);
+    }
+
+    .honor-card h3 {
+      margin-bottom: 14px;
+      font-size: 1.08rem;
+    }
+
+    .honor-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .honor-card li + li {
+      margin-top: 8px;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      background: var(--white);
+    }
+
+    a.contact-card:hover {
+      border-color: rgba(88, 117, 88, 0.42);
+      box-shadow: 0 16px 34px rgba(35, 24, 21, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .contact-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-card strong {
+      display: block;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 30px 0 42px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      background: var(--paper);
+    }
+
+    @media (min-width: 1101px) and (max-height: 700px) {
+      .profile-sidebar__inner {
+        gap: 8px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+      }
+
+      .profile-sidebar .hero-lockup {
+        width: 205px;
+      }
+
+      .profile-sidebar .portrait-panel {
+        width: 175px;
+      }
+
+      .profile-sidebar .motto-mark {
+        width: 170px;
+        margin-top: 8px;
+      }
+
+      .profile-sidebar h1 {
+        font-size: 2.15rem;
+      }
+
+      .profile-sidebar h1 span {
+        font-size: 0.96rem;
+      }
+
+      .profile-sidebar .eyebrow {
+        margin-bottom: 4px;
+      }
+
+      .profile-sidebar .button {
+        min-height: 34px;
+        padding: 5px 8px;
+        font-size: 0.76rem;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      body {
+        overflow: auto;
+      }
+
+      .site-layout {
+        display: block;
+        height: auto;
+        overflow: visible;
+      }
+
+      .profile-sidebar {
+        height: auto;
+        min-height: 590px;
+        overflow: hidden;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .profile-sidebar__inner {
+        display: grid;
+        grid-template-columns: minmax(230px, 290px) minmax(0, 1fr);
+        grid-template-areas:
+          "lockup copy"
+          "portrait copy"
+          "portrait actions";
+        align-content: center;
+        column-gap: 52px;
+        row-gap: 16px;
+        width: min(920px, calc(100% - 48px));
+        height: auto;
+        min-height: 590px;
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      .profile-sidebar .hero-lockup {
+        grid-area: lockup;
+        align-self: end;
+        width: min(270px, 100%);
+      }
+
+      .profile-sidebar .portrait-wrap {
+        grid-area: portrait;
+      }
+
+      .profile-sidebar .portrait-panel {
+        width: min(260px, 100%);
+      }
+
+      .sidebar-copy {
+        grid-area: copy;
+        align-self: end;
+      }
+
+      .profile-sidebar .hero-actions {
+        grid-area: actions;
+        align-self: start;
+      }
+
+      .profile-sidebar h1 {
+        font-size: 3.35rem;
+      }
+
+      .profile-sidebar h1 span {
+        font-size: 1.3rem;
+      }
+
+      .sidebar-pine {
+        left: -36px;
+        width: 270px;
+        opacity: 0.08;
+      }
+
+      .content-pane {
+        height: auto;
+        overflow: visible;
+      }
+
+      .content-pane .shell {
+        width: min(100% - 40px, 1060px);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero-grid,
+      .section-head,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        min-height: auto;
+        gap: 34px;
+        padding-top: 54px;
+      }
+
+      .hero-research {
+        padding-top: 28px;
+        padding-left: 0;
+        border-top: 1px solid rgba(88, 117, 88, 0.28);
+        border-left: 0;
+      }
+
+      .hero-research .research-map {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .content-pane .section,
+      .content-pane #top {
+        scroll-margin-top: 132px;
+      }
+
+      .campus-silhouette {
+        width: 78vw;
+        opacity: 0.3;
+      }
+
+      .campus-silhouette-vertical {
+        width: 150px;
+        opacity: 0.22;
+      }
+
+      .hero-watermark {
+        width: 180px;
+        opacity: 0.035;
+      }
+
+      h1 {
+        font-size: 3.1rem;
+      }
+
+      .metric-strip,
+      .interest-grid,
+      .highlight-grid,
+      .honor-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .profile-sidebar {
+        min-height: auto;
+      }
+
+      .profile-sidebar__inner {
+        display: flex;
+        width: min(100% - 40px, 520px);
+        min-height: auto;
+        padding: 42px 0 48px;
+      }
+
+      .profile-sidebar .hero-lockup {
+        align-self: flex-start;
+        width: min(250px, 78vw);
+      }
+
+      .profile-sidebar .portrait-wrap {
+        align-self: stretch;
+      }
+
+      .profile-sidebar .portrait-panel {
+        width: min(275px, 84vw);
+      }
+
+      .profile-sidebar h1 {
+        font-size: 2.5rem;
+      }
+
+      .profile-sidebar h1 span {
+        font-size: 1.12rem;
+      }
+
+      .profile-sidebar .hero-actions {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: start;
+        width: 100%;
+      }
+
+      .profile-sidebar .button {
+        min-height: 40px;
+        font-size: 0.8rem;
+      }
+
+      .content-pane .shell {
+        width: min(100% - 24px, 1060px);
+      }
+
+      .shell {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .campus-band {
+        height: 46px;
+      }
+
+      .campus-band img {
+        height: 46px;
+      }
+
+      .campus-silhouette,
+      .campus-silhouette-vertical,
+      .hero-watermark,
+      .campus-mark::after,
+      .pine-mark::before,
+      .pine-mark-right::before,
+      .hall-horizontal::before,
+      .hall-vertical::before,
+      .contact-campus::after {
+        display: none;
+      }
+
+      .campus-pattern::after {
+        opacity: 0.16;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h1 span {
+        font-size: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1.82rem;
+      }
+
+      .hero-summary h2 {
+        font-size: 2.15rem;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+
+      .metric-strip,
+      .interest-grid,
+      .highlight-grid,
+      .honor-grid,
+      .research-map {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-research .research-map {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item,
+      .publication,
+      .edu-card {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        min-height: 82px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html,
+      .content-pane {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-layout">
+    <aside class="profile-sidebar" aria-label="个人信息">
+      <img class="sidebar-pine" src="assets/六朝松.svg" alt="" aria-hidden="true">
+      <div class="profile-sidebar__inner">
+        <img class="hero-lockup" src="assets/东南大学彩色中英文字校标组合-左右.svg" alt="东南大学 Southeast University">
+        <div class="portrait-wrap">
+          <figure class="portrait-panel">
+            <img class="portrait" src="assets/portrait.jpg" alt="李牧泽头像">
+            <figcaption class="portrait-caption">
+              <span>
+                <strong>交通工程（茅以升班）</strong>
+                School of Transportation, SEU
+              </span>
+              <img class="school-mark" src="assets/东南大学彩色校标.svg" alt="东南大学校徽">
+            </figcaption>
+          </figure>
+          <img class="motto-mark" src="assets/校训横排.svg" alt="止于至善">
+        </div>
+        <div class="sidebar-copy">
+          <div class="eyebrow">SEU School of Transportation · Undergraduate</div>
+          <h1 id="hero-title">李牧泽<span>Muzhe Li</span></h1>
+        </div>
+        <div class="hero-actions" aria-label="主页链接">
+          <a class="button" href="mailto:213230392@seu.edu.cn" aria-label="Email" title="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            <span>Email</span>
+          </a>
+          <a class="button primary" href="https://github.com/Luz7818" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="content-pane">
+      <header class="topbar">
+        <nav class="shell nav" aria-label="主导航">
+          <a class="brand" href="#top">
+            <img class="brand-emblem" src="assets/东南大学彩色校标.svg" alt="" aria-hidden="true">
+            <span class="brand-text">
+              <strong>李牧泽</strong>
+              <span>Muzhe Li</span>
+            </span>
+          </a>
+          <div class="nav-links">
+            <a href="#about">简介</a>
+            <a href="#research">科研</a>
+            <a href="#publications">论文</a>
+            <a href="#honors">荣誉</a>
+            <a href="#contact">联系</a>
+          </div>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="overview-title">
+          <img class="campus-silhouette" src="assets/大礼堂-剪影-横向.svg" alt="" aria-hidden="true">
+          <img class="campus-silhouette-vertical" src="assets/大礼堂-剪影-纵向.svg" alt="" aria-hidden="true">
+          <img class="hero-watermark" src="assets/东南大学黑白校标.svg" alt="" aria-hidden="true">
+          <div class="shell hero-grid">
+            <div class="hero-summary">
+              <div class="kicker">ACADEMIC PROFILE</div>
+              <h2 id="overview-title">大模型与智能体驱动的智慧交通</h2>
+              <p class="lead">
+                东南大学交通学院 2023 级本科生，交通工程（茅以升班）专业。研究兴趣聚焦大语言模型智能体与交通系统优化、多模式交通仿真、交通时空预测与高速公路安全监控，相关成果发表于世界交通运输大会（WTC）与国际计算机技术与信息科学研讨会（ISCTIS）。
+              </p>
+              <div class="metric-strip" aria-label="个人概览">
+                <div class="metric">
+                  <strong>1</strong>
+                  <span>国家级一等奖</span>
+                </div>
+                <div class="metric">
+                  <strong>2</strong>
+                  <span>第一作者论文</span>
+                </div>
+                <div class="metric">
+                  <strong>5</strong>
+                  <span>科研项目经历</span>
+                </div>
+                <div class="metric">
+                  <strong>4</strong>
+                  <span>奖学金</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-research">
+              <span class="hero-research-label">FOCUS AREAS</span>
+              <div class="research-map" aria-label="研究方向">
+                <div class="map-node"><b>LLM Agents</b>基于大模型 ReAct 框架的交叉口信号优化</div>
+                <div class="map-node"><b>Traffic Simulation</b>多模式交通智能体仿真平台研发</div>
+                <div class="map-node"><b>Forecasting</b>智能优化算法与深度网络的交通时空预测</div>
+                <div class="map-node"><b>Traffic Safety</b>高速公路安全监控与应急协同系统</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    <div class="campus-band" aria-hidden="true">
+      <img src="assets/大礼堂-连续.svg" alt="">
+    </div>
+
+    <section class="section campus-mark hall-horizontal" id="about">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="kicker">PROFILE</div>
+            <h2>面向智慧交通的本科经历</h2>
+          </div>
+          <p>
+            目前关注大语言模型与交通运输系统的结合：如何用智能体优化信号控制、如何构建多模式交通仿真平台、如何用深度学习模型刻画交通时空规律，并在真实高速公路场景中完成安全监控与应急协同系统的部署。
+          </p>
+        </div>
+          <div class="panel">
+            <div class="edu-card">
+              <img src="assets/东南大学彩色校标.svg" alt="东南大学校徽">
+              <div>
+                <h3>东南大学 Southeast University</h3>
+                <p>2023.09 至今，交通学院，交通工程（茅以升班）。</p>
+              </div>
+            </div>
+            <ul class="fact-list">
+              <li><b>身份</b><span>中国共产党党员</span></li>
+              <li><b>指导老师</b><span>刘志远</span></li>
+              <li><b>方向</b><span>智能交通、交通仿真与优化、大模型智能体</span></li>
+            </ul>
+            <img class="campus-line-art" src="assets/大礼堂-独立.svg" alt="" aria-hidden="true">
+          </div>
+        </div>
+    </section>
+
+    <section class="section alt campus-pattern pine-mark" id="research">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="kicker">RESEARCH</div>
+            <h2>研究兴趣</h2>
+          </div>
+          <p>
+            研究问题围绕“交通系统如何被大模型与智能体方法优化”展开，连接强化学习式的决策优化、多智能体仿真、深度时空预测与交通安全工程。
+          </p>
+        </div>
+        <div class="interest-grid">
+          <article class="interest">
+            <div class="num">01</div>
+            <h3>大模型与信号控制</h3>
+            <p>基于 ReAct 框架的交叉口信号优化方法，以第一主持人身份推进。</p>
+          </article>
+          <article class="interest">
+            <div class="num">02</div>
+            <h3>交通仿真平台</h3>
+            <p>TRIP-TASP 多模式交通智能体仿真平台研发，支撑多模式出行推演。</p>
+          </article>
+          <article class="interest">
+            <div class="num">03</div>
+            <h3>交通时空预测</h3>
+            <p>HLOA 优化的 CNN-BiGRU 网络，面向智慧城市 IoT 场景的交通时空预测。</p>
+          </article>
+          <article class="interest">
+            <div class="num">04</div>
+            <h3>交通安全与应急</h3>
+            <p>高速公路安全监控与应急协同系统部署，以及船闸干支联动跨域调度。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hall-vertical">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="kicker">HIGHLIGHTS</div>
+            <h2>近期亮点</h2>
+          </div>
+          <p>
+            以下按公开主页展示口径整理，涵盖论文发表、学科竞赛与科研实习，便于访问者快速了解研究轨迹。
+          </p>
+        </div>
+        <div class="highlight-grid">
+          <a class="highlight" href="#publications">
+            <span class="tag">WTC '26</span>
+            <h3>大模型驱动的交通仿真优化探索</h3>
+            <p>从语义到样本：利用 LLM 进行基于仿真的交通优化智能探索，第一作者。</p>
+          </a>
+          <a class="highlight" href="#publications">
+            <span class="tag blue">ISCTIS '26</span>
+            <h3>HLOA 优化的 CNN-BiGRU 时空预测</h3>
+            <p>面向 IoT 智慧城市的交通时空预测，第一作者。</p>
+          </a>
+          <a class="highlight" href="#honors">
+            <span class="tag coral">国家一等奖</span>
+            <h3>全国大学生交通运输科技大赛</h3>
+            <p>船视宝杯第二十一届全国大学生交通运输科技大赛国家一等奖。</p>
+          </a>
+          <a class="highlight" href="#experience">
+            <span class="tag gold">华为 TLab</span>
+            <h3>可信实验室科研实习</h3>
+            <p>计算误差分析与 Oracle 判定技术，2026.03 至今。</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt campus-pattern pine-mark-right" id="experience">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="kicker">EXPERIENCE</div>
+            <h2>科研经历</h2>
+          </div>
+          <p>
+            从交叉口信号优化到多模式交通仿真，再到高速公路安全监控与可信 AI，项目之间共享一个核心问题：如何让智能体方法在真实交通系统中可靠落地。
+          </p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">2024.10-2026.09</div>
+            <div>
+              <h3>基于大模型 ReAct 框架的交叉口信号优化方法（第一主持人）</h3>
+              <p>提出基于大模型 ReAct 框架的交叉口信号优化方法，负责项目整体设计与推进。</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">2025.11-2026.01</div>
+            <div>
+              <h3>TRIP-TASP 多模式交通智能体仿真平台研发</h3>
+              <p>参与多模式交通智能体仿真平台的研发，支撑多模式出行仿真推演。</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">2026.03-至今</div>
+            <div>
+              <h3>TLab · 华为可信实验室</h3>
+              <p>计算误差分析与 Oracle 判定技术。</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">2026.04-2026.05</div>
+            <div>
+              <h3>京杭运河船闸干支联动与跨域调度智能体技术研究与示范（省级科创项目）</h3>
+              <p>参与船闸干支联动与跨域调度智能体技术的研究与示范。</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">2026.06-2026.07</div>
+            <div>
+              <h3>TRIP · 常州市高速四大队高速公路安全监控与应急协同系统部署</h3>
+              <p>参与高速公路安全监控与应急协同系统在常州市高速四大队的落地部署。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section campus-mark hall-horizontal" id="publications">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="kicker">PUBLICATIONS</div>
+            <h2>论文成果</h2>
+          </div>
+          <p>
+            均为第一作者，已按会议口径整理；电子版链接待出版方上线后补充。
+          </p>
+        </div>
+        <div class="publication-list">
+          <div class="publication pending-link">
+            <div class="publication-meta">
+              <span class="venue">WTC '26</span>
+              <span class="rank first">第一作者</span>
+            </div>
+            <div>
+              <h3>From Semantics to Samples: Leveraging LLMs for Intelligent Exploration in Traffic Simulation-Based Optimization</h3>
+              <p class="authors"><b>Authors:</b> <u>Muzhe Li</u> · First Author</p>
+              <p>世界交通运输大会（World Transport Convention），已发表。</p>
+            </div>
+          </div>
+          <div class="publication pending-link">
+            <div class="publication-meta">
+              <span class="venue">ISCTIS '26</span>
+              <span class="rank first">第一作者</span>
+            </div>
+            <div>
+              <h3>HLOA-Optimized CNN-BiGRU for Traffic Spatio-Temporal Forecasting in IoT Smart Cities</h3>
+              <p class="authors"><b>Authors:</b> <u>Muzhe Li</u> · First Author</p>
+              <p>国际计算机技术与信息科学研讨会（ISCTIS），已发表。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt campus-pattern hall-vertical" id="honors">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="kicker">HONORS</div>
+            <h2>奖项与竞赛</h2>
+          </div>
+          <p>
+            除科研训练外，持续参与学科竞赛与学生工作，覆盖国家级、省级与校级成果。
+          </p>
+        </div>
+        <div class="honor-grid">
+          <article class="honor-card">
+            <h3>奖学金</h3>
+            <ul>
+              <li>2023-2024 东南大学校长奖学金</li>
+              <li>2023-2024 东南大学“至善交通奖学金”</li>
+              <li>2023-2024、2024-2025 东南大学“至善学子奖学金”</li>
+            </ul>
+          </article>
+          <article class="honor-card">
+            <h3>荣誉称号</h3>
+            <ul>
+              <li>2023-2024 东南大学优秀学生干部、交通学院优秀学生干部</li>
+              <li>2025-2026 东南大学优秀共青团干部</li>
+              <li>2023-2024 东南大学“优秀团支部”团支书</li>
+              <li>2024-2025、2025-2026 东南大学“五四红旗团支部”团支书</li>
+            </ul>
+          </article>
+          <article class="honor-card">
+            <h3>学科竞赛</h3>
+            <ul>
+              <li>船视宝杯第二十一届全国大学生交通运输科技大赛，国家一等奖</li>
+              <li>2024 第二届中国智能交通创新挑战赛，国家三等奖</li>
+              <li>2024 高教社杯全国大学生数学建模竞赛（本科组），江苏赛区一等奖</li>
+              <li>智行·维脉杯第十一届江苏省大学生交通科技大赛，二等奖</li>
+              <li>东南大学第十六届交通运输科技竞赛，二等奖</li>
+              <li>东南大学第二十三届结构创新竞赛，二等奖</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section campus-pattern pine-mark" id="leadership">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="kicker">LEADERSHIP</div>
+            <h2>学生工作</h2>
+          </div>
+          <p>
+            在班级、社团与党支部中承担组织与服务工作。
+          </p>
+        </div>
+        <div class="honor-grid">
+          <article class="honor-card">
+            <h3>党团工作</h3>
+            <ul>
+              <li>2025.06 至今 交通运输工程本科生第二党支部党小组组长</li>
+              <li>2024.09 至今 210231 团支部团支书</li>
+              <li>2023.08-2024.09 G52235 团支部团支书</li>
+            </ul>
+          </article>
+          <article class="honor-card">
+            <h3>学生组织</h3>
+            <ul>
+              <li>2024.09-2025.09 交通学院 cpp 答疑室组长</li>
+              <li>2023.09-2025.09 东南大学主持人协会宣传部副部长</li>
+              <li>2023.08-2024.09 东南大学 SiliCOM 协会副部长</li>
+            </ul>
+          </article>
+          <article class="honor-card">
+            <h3>其他经历</h3>
+            <ul>
+              <li>2023.08-2023.09 东南大学军训三连负责人</li>
+              <li>2023.08-2024.09 交通学院平面传媒中心干事</li>
+              <li>2024.09 至今 东南大学心理健康中心宣传部干事</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-campus pine-mark-right" id="contact">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="kicker">CONTACT</div>
+            <h2>联系与链接</h2>
+          </div>
+          <p>
+            欢迎围绕大模型智能体与交通优化、多模式交通仿真、交通时空预测与交通安全等方向交流。
+          </p>
+        </div>
+        <img class="contact-lockup" src="assets/东南大学彩色中英文字校标组合-左右.svg" alt="东南大学 Southeast University">
+        <div class="contact">
+          <a class="contact-card" href="mailto:213230392@seu.edu.cn">
+            <span>School Email</span>
+            <strong>213230392@seu.edu.cn</strong>
+          </a>
+          <a class="contact-card" href="https://github.com/Luz7818" target="_blank" rel="noreferrer">
+            <span>GitHub</span>
+            <strong>github.com/Luz7818</strong>
+          </a>
+          <a class="contact-card" href="https://transportation.seu.edu.cn" target="_blank" rel="noreferrer">
+            <span>School of Transportation</span>
+            <strong>transportation.seu.edu.cn</strong>
+          </a>
+          <a class="contact-card" href="https://www.seu.edu.cn" target="_blank" rel="noreferrer">
+            <span>Southeast University</span>
+            <strong>www.seu.edu.cn</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+      </main>
+
+      <footer>
+        <div class="shell footer-inner">
+          <img class="footer-mark" src="assets/东南大学标准字-横排.svg" alt="" aria-hidden="true">
+          <span>© 2026 Muzhe Li. Built for GitHub Pages from resume materials.</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      const scrollToHash = (hash, behavior = "auto") => {
+        if (!hash || hash === "#") return;
+        const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+        if (!target) return;
+        target.scrollIntoView({
+          behavior: prefersReducedMotion.matches ? "auto" : behavior,
+          block: "start"
+        });
+      };
+
+      document.addEventListener("click", (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link) return;
+        const hash = link.getAttribute("href");
+        if (!hash || !document.getElementById(decodeURIComponent(hash.slice(1)))) return;
+
+        event.preventDefault();
+        history.pushState(null, "", hash);
+        scrollToHash(hash, "smooth");
+      });
+
+      window.addEventListener("popstate", () => scrollToHash(window.location.hash));
+      window.addEventListener("load", () => {
+        if (window.location.hash) {
+          requestAnimationFrame(() => scrollToHash(window.location.hash));
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
