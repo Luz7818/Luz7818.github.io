@@ -1133,6 +1133,76 @@
       margin-top: 8px;
     }
 
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      background: var(--white);
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .project:hover {
+      border-color: rgba(88, 117, 88, 0.42);
+      box-shadow: 0 16px 34px rgba(35, 24, 21, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.32;
+    }
+
+    .project h3 a:hover {
+      color: var(--teal-dark);
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .project .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .project .stack span {
+      border-radius: 999px;
+      padding: 3px 9px;
+      background: var(--mist);
+      color: var(--teal-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: var(--teal-dark);
+      font-size: 0.86rem;
+      font-weight: 760;
+    }
+
+    .project-links a:hover {
+      color: var(--ink);
+    }
+
     .contact {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1163,6 +1233,18 @@
     .contact-card strong {
       display: block;
       word-break: break-word;
+    }
+
+    .contact-card.site {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .contact-card.site span {
+      margin-bottom: 0;
     }
 
     footer {
@@ -1358,7 +1440,8 @@
       .metric-strip,
       .interest-grid,
       .highlight-grid,
-      .honor-grid {
+      .honor-grid,
+      .project-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -1468,6 +1551,7 @@
       .interest-grid,
       .highlight-grid,
       .honor-grid,
+      .project-grid,
       .research-map {
         grid-template-columns: 1fr;
       }
@@ -1524,7 +1608,7 @@
           <h1 id="hero-title">李牧泽<span>Muzhe Li</span></h1>
         </div>
         <div class="hero-actions" aria-label="主页链接">
-          <a class="button" href="mailto:213230392@seu.edu.cn" aria-label="Email" title="Email">
+          <a class="button" href="mailto:muze.luz@gmail.com" aria-label="Email" title="Email">
             <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
               <rect width="20" height="16" x="2" y="4" rx="2"></rect>
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
@@ -1556,6 +1640,7 @@
             <a href="#about">简介</a>
             <a href="#research">科研</a>
             <a href="#publications">论文</a>
+            <a href="#projects">项目</a>
             <a href="#honors">荣誉</a>
             <a href="#contact">联系</a>
           </div>
@@ -1800,7 +1885,56 @@
       </div>
     </section>
 
-    <section class="section alt campus-pattern hall-vertical" id="honors">
+    <section class="section alt campus-pattern pine-mark" id="projects">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="kicker">OPEN SOURCE</div>
+            <h2>开源项目</h2>
+          </div>
+          <p>
+            把科研与工程里遇到的问题做成能跑、能看、能复现的开源作品，覆盖多智能体强化学习、LLM 测试生成、交通语料与可视化。
+          </p>
+        </div>
+        <div class="project-grid">
+          <article class="project">
+            <h3><a href="https://github.com/Luz7818/zhishuxing" target="_blank" rel="noreferrer">智枢星 · ZhiShuXing</a></h3>
+            <p>动态客流下的枢纽智慧换乘引导：MADDPG 多智能体强化学习 + 枢纽仿真 + LLM 对话式引导，Web 控制台与移动端 PWA 双端。</p>
+            <div class="stack"><span>Python</span><span>MADDPG</span><span>LLM</span><span>PWA</span></div>
+            <div class="project-links"><a href="https://github.com/Luz7818/zhishuxing" target="_blank" rel="noreferrer">GitHub 仓库</a></div>
+          </article>
+          <article class="project">
+            <h3><a href="https://github.com/Luz7818/testforge" target="_blank" rel="noreferrer">TestForge</a></h3>
+            <p>以变异测试为验收标准的测试生成智能体：LLM 写的单测必须证明能杀掉种子故障才会被采纳，开源复现 Meta ACH（FSE 2025）。</p>
+            <div class="stack"><span>Python</span><span>LLM</span><span>Mutation Testing</span><span>Open Source</span></div>
+            <div class="project-links"><a href="https://github.com/Luz7818/testforge" target="_blank" rel="noreferrer">GitHub 仓库</a></div>
+          </article>
+          <article class="project">
+            <h3><a href="https://github.com/Luz7818/traffic-terminology" target="_blank" rel="noreferrer">交通用语语料库</a></h3>
+            <p>口语化交通表述到标准交通工程术语的中英对照语料库，807 条术语 / 2038 种口语说法 / 8 个领域，附 AI Skill 与静态转换器。</p>
+            <div class="stack"><span>Python</span><span>JavaScript</span><span>Corpus</span><span>AI Skill</span></div>
+            <div class="project-links"><a href="https://github.com/Luz7818/traffic-terminology" target="_blank" rel="noreferrer">GitHub 仓库</a></div>
+          </article>
+          <article class="project">
+            <h3><a href="https://github.com/Luz7818/Transportation_Harnesss" target="_blank" rel="noreferrer">Transportation Harness</a></h3>
+            <p>交通分析自进化评测系统：线上 badcase 沉淀为可重放评测集，闭环驱动分析管线从 7.7% 提升到 100%，配 PWA 看板与 Python SDK。</p>
+            <div class="stack"><span>Python</span><span>LLM-as-Judge</span><span>PWA</span><span>OpenAPI</span></div>
+            <div class="project-links"><a href="https://github.com/Luz7818/Transportation_Harnesss" target="_blank" rel="noreferrer">GitHub 仓库</a></div>
+          </article>
+          <article class="project">
+            <h3><a href="https://github.com/Luz7818/marx-cloud" target="_blank" rel="noreferrer">思想云 · Marx Cloud</a></h3>
+            <p>一张可漫游的经典著作星图：1041 句语录汇成万点星辰，星云每转过 90° 聚合成一位思想家的肖像。</p>
+            <div class="stack"><span>JavaScript</span><span>three.js</span><span>WebGL</span><span>Generative</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Luz7818/marx-cloud" target="_blank" rel="noreferrer">GitHub 仓库</a>
+              <a href="https://luz7818.github.io/marx-cloud/" target="_blank" rel="noreferrer">在线演示</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section campus-pattern hall-vertical" id="honors">
       <div class="shell">
         <div class="section-head">
           <div>
@@ -1844,7 +1978,7 @@
       </div>
     </section>
 
-    <section class="section campus-pattern pine-mark" id="leadership">
+    <section class="section alt campus-pattern pine-mark-right" id="leadership">
       <div class="shell">
         <div class="section-head">
           <div>
@@ -1897,9 +2031,9 @@
         </div>
         <img class="contact-lockup" src="assets/东南大学彩色中英文字校标组合-左右.svg" alt="东南大学 Southeast University">
         <div class="contact">
-          <a class="contact-card" href="mailto:213230392@seu.edu.cn">
-            <span>School Email</span>
-            <strong>213230392@seu.edu.cn</strong>
+          <a class="contact-card" href="mailto:muze.luz@gmail.com">
+            <span>Email</span>
+            <strong>muze.luz@gmail.com</strong>
           </a>
           <a class="contact-card" href="https://github.com/Luz7818" target="_blank" rel="noreferrer">
             <span>GitHub</span>
@@ -1912,6 +2046,10 @@
           <a class="contact-card" href="https://www.seu.edu.cn" target="_blank" rel="noreferrer">
             <span>Southeast University</span>
             <strong>www.seu.edu.cn</strong>
+          </a>
+          <a class="contact-card site" href="https://luzzz.me" target="_blank" rel="noreferrer">
+            <span>Personal Site</span>
+            <strong>luzzz.me</strong>
           </a>
         </div>
       </div>
