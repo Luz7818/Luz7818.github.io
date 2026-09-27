@@ -22,7 +22,8 @@ python -m http.server 8000
 curl -s https://luz7818.github.io/ | wc -c
 ```
 
-输出的字节数与本地 `index.html` 一致（当前 57171 字节），就说明线上就是这个版本。
+输出的字节数与本地 `index.html` 一致，就说明线上就是这个版本。当前值以
+[AGENTS.md](AGENTS.md) 的「当前真实状态」为准，不在这里复述。
 
 ## 改一处内容
 
