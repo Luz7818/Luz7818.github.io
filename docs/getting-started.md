@@ -31,7 +31,7 @@ python -m http.server 8000
 |---|---|
 | 姓名、英文名、引导语 | `<section>` 之前的 hero 区，含 `id="hero-title"` |
 | 导航条 | `<nav class="shell nav">` 里的 7 处 `href="#…"`（品牌 `#top` + 6 个栏目） |
-| 八个内容小节 | `<section … id="about|research|experience|publications|projects|honors|leadership|contact">` |
+| 八个内容小节 | 每节一个 `<section id="…">`：`about`、`research`、`experience`、`publications`、`projects`、`honors`、`leadership`、`contact` |
 | 配色与字号 | 顶部 `<style>` 里 `:root` 的 14 个 CSS 自定义属性 |
 | 项目卡片 | `id="projects"` 小节内的 `<article class="project">`，当前 5 张 |
 | 邮箱 | 搜 `mailto:`，出现在 hero 与 `#contact` 两处 |
