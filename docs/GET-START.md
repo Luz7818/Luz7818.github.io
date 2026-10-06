@@ -52,12 +52,14 @@ python -m http.server 8000
 
 ```html
 <article class="project">
-  <h3><a href="https://github.com/Luz7818/<仓库名>" target="_blank" rel="noreferrer">项目名</a></h3>
+  <h3><a href="https://github.com/Luz7818/zhishuxing" target="_blank" rel="noreferrer">项目名</a></h3>
   <p>一句话说明这个项目在做什么。</p>
   <div class="stack"><span>语言</span><span>方向</span></div>
-  <div class="project-links"><a href="https://github.com/Luz7818/<仓库名>" target="_blank" rel="noreferrer">GitHub 仓库</a></div>
+  <div class="project-links"><a href="https://github.com/Luz7818/zhishuxing" target="_blank" rel="noreferrer">GitHub 仓库</a></div>
 </article>
 ```
+
+（链接以 `zhishuxing` 为示例，粘贴时换成你要展示的仓库名。）
 
 三点注意：文案里的数字要能复核（例如"807 条术语"要来自该项目自己的校验命令）；
 `target="_blank"` 要配 `rel="noreferrer"`；卡片是 3 列栅格，5 张会留两个空格子，属正常。
