@@ -1,0 +1,4 @@
+# 行尾锁定：index.html 等页面文件不做任何转换，防止 autocrlf 造成整文件 CRLF 翻转
+*.html -text
+# 其余文本文件入库一律归一为 LF（检出侧行尾仍由 core.autocrlf 决定）
+* text=auto

@@ -32,3 +32,17 @@
 - AGENTS.md「当前状态」同步：行数 2105→2112、本地字节数；远程资源复核命令排除
   `rel="canonical"`（它是 `<link>` 声明，页面不加载它，不违反零远程资源约定）；新增
   分享元数据与图片懒加载两行及其复核命令。
+
+## 2026-10-07 · LICENSE、行尾锁定与个人站外链修正
+
+- 仓根补 `LICENSE`：MIT，版权人 Luz7818，年份 2026（与兄弟仓 Transportation_Harnesss、
+  Marx_Cloud 同为 MIT）；README「许可」一节由"未附开源许可证文件"改写为如实描述。
+- 仓根补 `.gitattributes`：`*.html -text` 锁定页面文件不做行尾转换，消除
+  `core.autocrlf=true` 下 `index.html` 整文件 CRLF 翻转的持续风险；另加 `* text=auto`
+  让其余文本入库归一 LF。验证：`git add --renormalize .` 后 `git status` 只出现两个新文件，
+  无整仓 renormalize。
+- `#contact` 的个人站外链由 `https://luzzz.me` 改为 `https://www.luzzz.me/`：裸域
+  `luzzz.me` 无 A 记录、只有 www 有解析。AGENTS.md 已知坑与 GET-START 故障表同步改为
+  如实描述（DNS 现状），不再表述为"网络不稳"。
+- AGENTS.md「当前状态」本地字节数随外链改动更新；目录说明树补 `.gitattributes` 与
+  `LICENSE`。

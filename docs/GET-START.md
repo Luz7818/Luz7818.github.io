@@ -110,9 +110,9 @@ curl -s https://luz7818.github.io/ | wc -c
 | 点导航没反应 | 新增小节时 `id` 与导航里的 `href="#…"` 没对上 | 跑第 3 节末与 `AGENTS.md` 的锚点核对 |
 | 本地打开一切正常，线上少一块 | 只改了工作区没提交，或提交没推 | `git status` 与 `git log origin/main..HEAD` |
 | 线上半天不更新 | Pages 部署延迟或浏览器缓存 | 用 `curl -s … \| wc -c` 判断，别刷浏览器 |
-| `git diff` 显示整个文件都改了 | `core.autocrlf=true`，行尾被从 LF 转成 CRLF | 不要把这次整文件翻转提交，先确认内容是否真的变了 |
+| `git diff` 显示整个文件都改了 | `core.autocrlf=true`；`index.html` 已由 `.gitattributes` 的 `*.html -text` 锁定不受影响，其余文本文件仍可能出现行尾假改动 | 不要把整文件翻转提交，先确认内容是否真的变了 |
 | 手机上排版挤成一团 | 断点是 1100 / 920 / 640 px，新加的宽元素没参与响应式 | 在浏览器开发者工具里把宽度拖到 640 以下复现 |
-| 本机打不开 `https://luzzz.me` 这条外链 | 那个域名在当前网络下解析不稳 | 不是本页问题，换网络再试 |
+| 个人站外链打不开 | 裸域 `luzzz.me` 无 A 记录，只有 `www.luzzz.me` 有解析；页面外链已指向 `https://www.luzzz.me/` | 打不开的是裸域地址才需处理，`www` 地址可达即正常 |
 
 ## 7. 术语小词典
 

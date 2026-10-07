@@ -11,8 +11,9 @@
 
 - 提交邮箱是仓库级覆盖的学校邮箱（`git config user.email` = `213230392@seu.edu.cn`），
   与其余仓库的 noreply 身份不同，是有意设置。
-- `core.autocrlf=true` 且本仓无 `.gitattributes`。若 `git diff` 显示 `index.html` 整文件改动，
-  先怀疑 LF→CRLF 翻转，不要把它当内容改动提交。
+- `core.autocrlf=true`；仓根 `.gitattributes` 已锁 `*.html -text`（页面文件不做行尾转换，
+  `index.html` 不再出现整文件翻转），其余文本文件 `* text=auto` 入库归一 LF。若 `git diff`
+  仍显示整文件改动，先查 `.gitattributes` 与行尾，不要把它当内容改动提交。
 
 ## commit message
 
