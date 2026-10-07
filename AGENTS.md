@@ -91,7 +91,7 @@
 | 项 | 值 | 复核命令 |
 |---|---|---|
 | 页面文件 | `index.html`，2112 行 | `wc -l index.html` |
-| 仓库内与线上是否同版本 | 本地 58389 字节；线上为旧版，推送后用复核命令核对一致 | `curl -s https://luz7818.github.io/ \| wc -c` |
+| 仓库内与线上是否同版本 | 一致（均 58389 字节） | `curl -s https://luz7818.github.io/ \| wc -c` |
 | 图片资源 | 13 个文件全部被引用，0 个多余 | `grep -oE 'assets/[^")]+' index.html \| sort -u` 与 `ls assets` 对差 |
 | 页内锚点 | 全页 11 处 `href="#…"`，指向 8 个不同目标，8 个都有对应 `id` | 见下方「锚点核对」 |
 | 样式 | 1 个内联 `<style>`，`:root` 下 14 个 CSS 自定义属性 | `grep -oE '^[[:space:]]+--[a-z-]+:' index.html \| sort -u \| wc -l` |

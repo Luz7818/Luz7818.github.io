@@ -55,3 +55,12 @@
 - 约定不破：工作流无构建、无依赖、无 lint，不影响零依赖单文件与双击可看。AGENTS / README /
   GIT / ARCHITECTURE / TESTING 五处"无 CI（有意选择）"的表述同步改为"CI 只有一条最小校验
   工作流"；目录说明树补 `.github/`。
+
+## 2026-10-07 · 推送与线上复核（本日三批 + 工作流的收口记录）
+
+- `a25b83f..e0b5663` 推送 `main`。线上复核：`curl -s https://luz7818.github.io/ | wc -c`
+  = 58389，与本地一致；线上 og: 5 项 / `twitter:card` / `canonical` / 5 处
+  `loading="lazy"` / `https://www.luzzz.me/` 外链逐一 grep 到位；LICENSE 线上 200，
+  `.gitattributes` 已入库（API 确认）。
+- check 工作流首跑（run 37592738597，e0b5663）结论 **success**。AGENTS「当前状态」
+  同版本行更新为一致；TODO 任务 1/4/5 记完成。

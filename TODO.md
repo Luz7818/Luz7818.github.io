@@ -5,21 +5,22 @@
 
 ## 当前进度
 
-- 正在做：无——推送后复核 Actions 结论与线上 og:（任务 1/4/5）
+- 正在做：无——2026-10-07「核查报告 P2 清账」批已收口（线上 58389 字节与本地一致，check 工作流 passing）
 - 下一个：移动端 3 断点真机走查
 
 ## 任务计划
 
 | # | 任务 | 验收标准（可验证） | 状态 |
 |---|---|---|---|
-| 1 | 补 `og:` 与 `canonical` 元标签 | `grep -cE 'og:\|canonical' index.html` ≥ 1；推送后线上 `curl -s https://luz7818.github.io/ \| grep -c 'og:'` ≥ 1 | 待确认（本地已验，推送后线上复核） |
+| 1 | 补 `og:` 与 `canonical` 元标签 | `grep -cE 'og:\|canonical' index.html` ≥ 1；推送后线上 `curl -s https://luz7818.github.io/ \| grep -c 'og:'` ≥ 1 | 完成（2026-10-07，线上已验 og: 5 项 + canonical） |
 | 2 | 决定是否附 LICENSE 文件 | 仓根出现 LICENSE，或本条以"决定不加"注销并记入 HISTORY 缘由 | 完成（2026-10-07，MIT，见仓根 LICENSE） |
 | 3 | 移动端 3 断点真机走查 | 1100 / 920 / 640 三档各留一张截图，存档路径登记进本表备注 | 待开始 |
-| 4 | 首屏之外的 `<img>` 加 `loading="lazy"` | `grep -o '<img[^>]*loading="lazy"' index.html \| wc -l` > 0，首屏 9 处不受影响 | 待确认（本地已验，推送后线上复核） |
-| 5 | 加最小校验工作流 | `.github/workflows/check.yml` 跑 AGENTS.md 两条核对，有输出即失败；推送后 Actions 结论 passing | 待确认（YAML 已解析通过，推送后看 Actions） |
+| 4 | 首屏之外的 `<img>` 加 `loading="lazy"` | `grep -o '<img[^>]*loading="lazy"' index.html \| wc -l` > 0，首屏 9 处不受影响 | 完成（2026-10-07，线上 grep 计 5） |
+| 5 | 加最小校验工作流 | `.github/workflows/check.yml` 跑 AGENTS.md 两条核对，有输出即失败；推送后 Actions 结论 passing | 完成（2026-10-07，run 37592738597 success） |
 
 状态取值：待开始 / 进行中 / 待确认 / 完成。
 
 ## 完成记录
 
 - [x] 文档九件体系迁移 —— 2026-10-05（见 HISTORY.md 对应条目）
+- [x] 核查报告 P2 清账（og:/canonical、lazy、LICENSE、.gitattributes、外链、最小 CI）—— 2026-10-07（见 HISTORY.md 对应条目）
