@@ -29,5 +29,6 @@
 
 ## CI 与 PR
 
-- 无 CI（有意选择，见 `docs/ARCHITECTURE.md`）；门禁见 [TESTING.md](TESTING.md)。
+- CI 只有一条最小工作流 `.github/workflows/check.yml`（跑 `AGENTS.md` 的两条核对，任一有
+  输出即失败，2026-10-07 起）；无构建、无 lint。门禁见 [TESTING.md](TESTING.md)。
 - 个人站直接推 `main`，无 PR 流程。

@@ -46,3 +46,12 @@
   如实描述（DNS 现状），不再表述为"网络不稳"。
 - AGENTS.md「当前状态」本地字节数随外链改动更新；目录说明树补 `.gitattributes` 与
   `LICENSE`。
+
+## 2026-10-07 · 最小校验工作流
+
+- 新增 `.github/workflows/check.yml`：checkout → 逐字跑 AGENTS.md 的「资源核对」「锚点核对」
+  两条命令 → 任一有输出即失败。核查报告"两条门禁命令完全靠人工"的 P2 项清账；命令正文仍以
+  AGENTS.md 为唯一权威来源，工作流内加注防止两处口径漂移。
+- 约定不破：工作流无构建、无依赖、无 lint，不影响零依赖单文件与双击可看。AGENTS / README /
+  GIT / ARCHITECTURE / TESTING 五处"无 CI（有意选择）"的表述同步改为"CI 只有一条最小校验
+  工作流"；目录说明树补 `.github/`。

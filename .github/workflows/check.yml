@@ -1,0 +1,31 @@
+# 最小校验工作流：只跑 AGENTS.md「当前状态」里的两条核对命令，任一有输出即失败。
+# 命令正文以 AGENTS.md 为唯一权威来源，这里保持逐字一致；改动命令先改 AGENTS.md。
+# 有意不加大于 4 步的任何东西：无构建、无依赖、无 lint，不影响零依赖单文件页面本身。
+
+name: check
+
+on:
+  push:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 资源核对（输出为空 = 页面引用的图片与磁盘一致）
+        shell: bash
+        run: |
+          diff <(grep -oE 'assets/[^")]+' index.html | sort -u) \
+               <(ls assets | sed 's|^|assets/|' | grep -v '^assets/README.md$' | sort)
+
+      - name: 锚点核对（输出为空 = 每个 href="#…" 都有对应 id）
+        shell: bash
+        run: |
+          out=$(comm -23 <(grep -oE 'href="#[a-zA-Z0-9_-]+"' index.html | sed 's/href="#//;s/"//' | sort -u) \
+                         <(grep -oE 'id="[a-zA-Z0-9_-]+"' index.html | sed 's/id="//;s/"//' | sort -u))
+          if [ -n "$out" ]; then
+            echo "$out"
+            exit 1
+          fi

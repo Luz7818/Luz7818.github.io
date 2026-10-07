@@ -99,7 +99,7 @@
 | 远程资源 | 0 个（不引 CDN、不加载远程字体；`rel="canonical"` 是声明，页面不加载它） | `grep -E '<(script\|link)[^>]*(src\|href)="https?:' index.html \| grep -v 'rel="canonical"'`（应无输出） |
 | 分享元数据 | og: 5 项 + `twitter:card` + `rel="canonical"`，`og:image` 为 Pages 根路径绝对 URL | `grep -c 'property="og:' index.html`（= 5） |
 | 图片懒加载 | 首屏之外的 5 处 `<img>` 带 `loading="lazy"`，首屏 9 处保持即时加载 | `grep -o '<img[^>]*loading="lazy"' index.html \| wc -l`（= 5） |
-| 测试 / CI / lint | 都没有；门禁就是下面两条核对 + [docs/TESTING.md](docs/TESTING.md) | — |
+| 测试 / CI / lint | 无测试、无 lint；CI 只有跑两条核对的最小工作流（`.github/workflows/check.yml`），门禁就是它加下面两条核对 + [docs/TESTING.md](docs/TESTING.md) | — |
 
 资源核对（在仓库根执行，`assets/README.md` 是目录说明页、不上页面，所以要滤掉）：
 
@@ -127,6 +127,7 @@ comm -23 <(grep -oE 'href="#[a-zA-Z0-9_-]+"' index.html | sed 's/href="#//;s/"//
 - 首页个人站外链指向 `https://www.luzzz.me/`：裸域 `luzzz.me` 没有 A 记录，只有 www 有解析
   （这是 DNS 现状，不是本页问题）。裸域生效前不要把链接改回裸域。
 - `六朝松.svg` 161 KB 是页面最大的一张图，但它是可见背景水印，不是可删的重复素材。
-- 不要为了"看起来正规"加 CI、打包、格式化配置；不要新增住址、电话等更敏感字段。
+- 不要为了"看起来正规"加打包、格式化配置，也不要往 CI 里堆构建与 lint——CI 只保留跑
+  两条核对的最小工作流；不要新增住址、电话等更敏感字段。
 - 不要因为两个「辅助」/两个「剪影」变体看着重复就删——它们分别被不同小节引用。
 - 不要把本仓内容大段复制进 `luzzz.me`（那是另一个独立站点，数据各自维护）。
