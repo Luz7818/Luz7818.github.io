@@ -5,16 +5,17 @@
 
 ## 当前进度
 
-- 正在做：无——「文档九件体系迁移」批已收口（2026-10-05 提交，残引 2026-10-06 清理）
-- 下一个：`og:` 与 `canonical` 元标签
+- 正在做：LICENSE 决定与 `.gitattributes` 行尾锁定（2026-10-07 批次）
+- 下一个：最小校验工作流（是否加、加成什么样，见任务 4）
 
 ## 任务计划
 
 | # | 任务 | 验收标准（可验证） | 状态 |
 |---|---|---|---|
-| 1 | 补 `og:` 与 `canonical` 元标签 | `grep -cE 'og:\|canonical' index.html` ≥ 1；推送后线上 `curl -s https://luz7818.github.io/ \| grep -c 'og:'` ≥ 1 | 待开始 |
-| 2 | 决定是否附 LICENSE 文件 | 仓根出现 LICENSE，或本条以"决定不加"注销并记入 HISTORY 缘由 | 待开始 |
+| 1 | 补 `og:` 与 `canonical` 元标签 | `grep -cE 'og:\|canonical' index.html` ≥ 1；推送后线上 `curl -s https://luz7818.github.io/ \| grep -c 'og:'` ≥ 1 | 待确认（本地已验，推送后线上复核） |
+| 2 | 决定是否附 LICENSE 文件 | 仓根出现 LICENSE，或本条以"决定不加"注销并记入 HISTORY 缘由 | 进行中 |
 | 3 | 移动端 3 断点真机走查 | 1100 / 920 / 640 三档各留一张截图，存档路径登记进本表备注 | 待开始 |
+| 4 | 首屏之外的 `<img>` 加 `loading="lazy"` | `grep -o '<img[^>]*loading="lazy"' index.html \| wc -l` > 0，首屏 9 处不受影响 | 待确认（本地已验，推送后线上复核） |
 
 状态取值：待开始 / 进行中 / 待确认 / 完成。
 
