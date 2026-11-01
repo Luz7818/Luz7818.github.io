@@ -24,6 +24,9 @@
       --teal-dark: #3f5d45;
       --coral: #f6ab00;
       --gold: #fdd000;
+      /* 琥珀文字档:同色相加深,页面全部实底上对比度 ≥4.5:1(WCAG AA);装饰分隔线/渐变/图标保持 --coral/--gold 原色 */
+      --coral-text: #8f6200;
+      --gold-text: #836a00;
       --blue: #151e49;
       --sand: #ad986e;
       --gray: #b4b7b9;
@@ -796,7 +799,7 @@
     }
 
     .kicker {
-      color: var(--coral);
+      color: var(--coral-text);
       font-weight: 780;
       font-size: 0.88rem;
       margin-bottom: 8px;
@@ -831,7 +834,7 @@
     }
 
     .interest .num {
-      color: var(--gold);
+      color: var(--gold-text);
       font-weight: 820;
       margin-bottom: 18px;
     }
@@ -890,12 +893,12 @@
 
     .tag.coral {
       background: #faeeee;
-      color: var(--coral);
+      color: var(--coral-text);
     }
 
     .tag.gold {
       background: #fbf1dc;
-      color: var(--gold);
+      color: var(--gold-text);
     }
 
     .tag.blue {
@@ -1089,7 +1092,7 @@
 
     .rank.first {
       background: #faeeee;
-      color: var(--coral);
+      color: var(--coral-text);
     }
 
     .publication h3 {
@@ -1919,7 +1922,7 @@
           </article>
           <article class="project">
             <h3><a href="https://github.com/Luz7818/traffic-terminology" target="_blank" rel="noreferrer">交通用语语料库</a></h3>
-            <p>口语化交通表述到标准交通工程术语的中英对照语料库，807 条术语 / 2038 种口语说法 / 9 类领域，附 AI Skill 与静态转换器。</p>
+            <p>口语化交通表述到标准交通工程术语的中英对照语料库，866 条术语 / 2215 种口语说法 / 9 类领域，附 AI Skill 与静态转换器。</p>
             <div class="stack"><span>Python</span><span>JavaScript</span><span>Corpus</span><span>AI Skill</span></div>
             <div class="project-links">
               <a href="https://github.com/Luz7818/traffic-terminology" target="_blank" rel="noreferrer">GitHub 仓库</a>

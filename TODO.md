@@ -24,3 +24,4 @@
 
 - [x] 文档九件体系迁移 —— 2026-10-05（见 HISTORY.md 对应条目）
 - [x] 核查报告 P2 清账（og:/canonical、lazy、LICENSE、.gitattributes、外链、最小 CI）—— 2026-10-07（见 HISTORY.md 对应条目）
+- [x] 11-01 体检 LU-01/LU-03 清账（语料卡数字对齐 866/2215、琥珀文字档对比度 ≥4.5:1）—— 2026-11-02（见 HISTORY.md 对应条目；GitHub 仓库 description 修正需 API，另案挂账）

@@ -64,3 +64,23 @@
   `.gitattributes` 已入库（API 确认）。
 - check 工作流首跑（run 37592738597，e0b5663）结论 **success**。AGENTS「当前状态」
   同版本行更新为一致；TODO 任务 1/4/5 记完成。
+
+## 2026-11-02 · 语料卡数字对齐与琥珀文字档对比度修正（11-01 体检 LU-01 / LU-03 清账）
+
+- LU-01：开源项目卡「交通用语语料库」数字 807 条术语 / 2038 种口语说法 → **866 / 2215**（9 类
+  领域不变），基准为 Traffic_terminology README/AGENTS 现值（复核：该仓 `python
+  scripts/validate.py` 与 `python scripts/build_index.py`；页面无复核注释，无需同步）。GitHub
+  仓库 description 的第三套口径（807/2038/8）不在本仓文件内，需 API 改描述，另案挂账。
+- LU-03：新增 `--coral-text` / `--gold-text` 两个文字档令牌，5 处琥珀文字（`.kicker`、
+  `.tag.coral`、`.rank.first`、`.tag.gold`、`.interest .num`）改用之；装饰用途（eyebrow 短线、
+  四色渐变条、favicon）保持 `--coral` / `--gold` 原色。色值由 WCAG 相对亮度公式实算（Python，
+  口径 1 KB 无关、对比度 =(L亮+0.05)/(L暗+0.05)）：
+  - `#f6ab00` → `#8f6200`（线性 RGB ×0.30，色相 41.7°→41.1°）：paper 1.88→**5.17**、
+    mist 1.77→**4.87**、#faeeee 药丸 1.72→**4.73**，全底 ≥4.5:1；
+  - `#fdd000` → `#836a00`（线性 RGB ×0.23，色相 49.3°→48.5°）：#fbf1dc 药丸 1.32→**4.65**、
+    白底 1.48→**5.22**，全底 ≥4.5:1。
+  - 本站无暗色主题（无 prefers-color-scheme），「明暗两主题」验证落为全部 5 种实际底色
+    （含最深的 #faeeee 药丸底）；体检卡建议的 #b45309 实测在两药丸底仅 4.43/4.48 不达标
+    且色相漂至 26°，故弃用，改取同色相加深值。
+- 同步：`:root` 自定义属性 14 → 16 个，AGENTS / README / ARCHITECTURE / CODE-STYLE /
+  GET-START 五处计数更新，GET-START 变量清单补两个文字档。CI 两条核对本地复跑均空输出。

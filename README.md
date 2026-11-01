@@ -37,7 +37,7 @@ curl -s https://luz7818.github.io/ | wc -c
 | 姓名、引导语、邮箱 | 顶部 hero 区与 `#contact` 小节 |
 | 小节标题与正文 | `<section id="…">` 各自一块，共 8 个 |
 | 项目卡片 | `#projects` 小节里的 `<article class="project">`，当前 5 张 |
-| 配色 | `:root` 下的 14 个 CSS 自定义属性（`--ink`、`--teal`、`--paper` 等） |
+| 配色 | `:root` 下的 16 个 CSS 自定义属性（`--ink`、`--teal`、`--paper` 等） |
 | 图片 | `assets/`，逐个文件说明见 [assets/README.md](assets/README.md) |
 
 ## 发布是怎么生效的

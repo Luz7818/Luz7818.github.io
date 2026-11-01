@@ -32,7 +32,7 @@ python -m http.server 8000
 | 姓名、英文名、引导语 | `<section>` 之前的 hero 区，含 `id="hero-title"` |
 | 导航条 | `<nav class="shell nav">` 里的 7 处 `href="#…"`（品牌 `#top` + 6 个栏目） |
 | 八个内容小节 | 每节一个 `<section id="…">`：`about`、`research`、`experience`、`publications`、`projects`、`honors`、`leadership`、`contact` |
-| 配色与字号 | 顶部 `<style>` 里 `:root` 的 14 个 CSS 自定义属性 |
+| 配色与字号 | 顶部 `<style>` 里 `:root` 的 16 个 CSS 自定义属性 |
 | 项目卡片 | `id="projects"` 小节内的 `<article class="project">`，当前 5 张 |
 | 邮箱 | 搜 `mailto:`，出现在 hero 与 `#contact` 两处 |
 | 页脚与校标 | `#contact` 小节与 `<footer>` |
@@ -80,9 +80,10 @@ ls assets | sed 's|^|assets/|' | sort
 
 ### 4.4 改配色
 
-`:root` 里的 14 个变量是全站唯一的颜色来源（`--ink` 正文、`--muted` 次要文字、
+`:root` 里的 16 个变量是全站唯一的颜色来源（`--ink` 正文、`--muted` 次要文字、
 `--teal` / `--teal-dark` 强调、`--paper` / `--white` 底色、`--line` 描边、
-`--shadow` 阴影、`--mist` / `--sand` 浅底、`--gold` / `--coral` / `--blue` / `--gray` 点缀）。
+`--shadow` 阴影、`--mist` / `--sand` 浅底、`--gold` / `--coral` / `--blue` / `--gray` 点缀、
+`--gold-text` / `--coral-text` 琥珀文字档（同色相加深，文字用）。
 改一处即可全站生效；不要在小节里另写十六进制色值，那会让下次统一改色漏掉它。
 
 ## 5. 发布与确认生效
