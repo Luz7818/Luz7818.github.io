@@ -91,11 +91,11 @@
 
 | 项 | 值 | 复核命令 |
 |---|---|---|
-| 页面文件 | `index.html`，2112 行 | `wc -l index.html` |
-| 仓库内与线上是否同版本 | 一致（均 58389 字节） | `curl -s https://luz7818.github.io/ \| wc -c` |
+| 页面文件 | `index.html`，2115 行 | `wc -l index.html` |
+| 仓库内与线上是否同版本 | 一致（均 58882 字节） | `curl -s https://luz7818.github.io/ \| wc -c` |
 | 图片资源 | 13 个文件全部被引用，0 个多余 | `grep -oE 'assets/[^")]+' index.html \| sort -u` 与 `ls assets` 对差 |
 | 页内锚点 | 全页 11 处 `href="#…"`，指向 8 个不同目标，8 个都有对应 `id` | 见下方「锚点核对」 |
-| 样式 | 1 个内联 `<style>`，`:root` 下 16 个 CSS 自定义属性 | `grep -oE '^[[:space:]]+--[a-z-]+:' index.html \| sort -u \| wc -l` |
+| 样式 | 1 个内联 `<style>`，`:root` 下 17 个 CSS 自定义属性 | `grep -oE '^[[:space:]]+--[a-z-]+:' index.html \| sort -u \| wc -l` |
 | 脚本 | 1 个内联 `<script>`，只做锚点平滑滚动 | `grep -c "<script" index.html` |
 | 远程资源 | 0 个（不引 CDN、不加载远程字体；`rel="canonical"` 是声明，页面不加载它） | `grep -E '<(script\|link)[^>]*(src\|href)="https?:' index.html \| grep -v 'rel="canonical"'`（应无输出） |
 | 分享元数据 | og: 5 项 + `twitter:card` + `rel="canonical"`，`og:image` 为 Pages 根路径绝对 URL | `grep -c 'property="og:' index.html`（= 5） |

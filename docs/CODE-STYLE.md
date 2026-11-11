@@ -13,9 +13,11 @@
 - 小节 = `<section id="…">`。8 个小节的 id 固定：`about` / `research` / `experience` /
   `publications` / `projects` / `honors` / `leadership` / `contact`。新增小节必须同时给
   `section` 加 `id` 并在导航登记 `href="#…"`——锚点与 id 成对，漏了不报错、只是点了没反应。
-- 配色只用 `:root` 的 16 个 CSS 自定义属性（`--ink` 正文、`--teal` 强调、`--paper` 底色等）；
+- 配色只用 `:root` 的 17 个 CSS 自定义属性（`--ink` 正文、`--teal` 强调、`--paper` 底色等）；
   不在小节里另写十六进制色值，否则下次统一改色会漏掉它。
 - 外链一律 `target="_blank"` 配 `rel="noreferrer"`。
+- 键盘焦点态只用 `:root` 的 `--focus-ring`（`a:focus-visible` / `.button:focus-visible` 统一引用），
+  不在单个小节另写 outline 值。
 - 文案里的数字要能复核（如"807 条术语"须来自该项目自己的校验命令），不给页面写无法核实的数。
 
 ## 错误处理与交互

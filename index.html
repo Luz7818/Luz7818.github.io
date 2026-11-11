@@ -32,6 +32,9 @@
       --gray: #b4b7b9;
       --white: #ffffff;
       --shadow: 0 24px 60px rgba(35, 24, 21, 0.12);
+      /* 键盘焦点环:实色 --teal-dark,四种实际底色上对比度 6.65-7.33:1(WCAG 2.2 focus 指示 ≥3:1);
+         旧 rgba(88,117,88,0.28) 混色后仅 1.45:1,等于没有焦点指示 */
+      --focus-ring: 2px solid var(--teal-dark);
     }
 
     * {
@@ -51,6 +54,13 @@
       color: var(--ink);
       font-family: "Inter", "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
       line-height: 1.65;
+    }
+
+    /* 键盘焦点统一收口:页面全部链接(.button/.highlight/.contact-card/导航/项目链接均含)走同一令牌 */
+    a:focus-visible,
+    .button:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: 2px;
     }
 
     .site-layout {
@@ -873,11 +883,6 @@
       transform: translateY(-2px);
     }
 
-    .highlight:focus-visible {
-      outline: 3px solid rgba(88, 117, 88, 0.28);
-      outline-offset: 3px;
-    }
-
     .tag {
       display: inline-flex;
       align-items: center;
@@ -938,11 +943,6 @@
       border-color: rgba(88, 117, 88, 0.42);
       box-shadow: 0 16px 34px rgba(35, 24, 21, 0.1);
       transform: translateY(-2px);
-    }
-
-    .timeline-item:focus-visible {
-      outline: 3px solid rgba(88, 117, 88, 0.28);
-      outline-offset: 3px;
     }
 
     .time {
@@ -1937,7 +1937,7 @@
           </article>
           <article class="project">
             <h3><a href="https://github.com/Luz7818/marx-cloud" target="_blank" rel="noreferrer">思想云 · Marx Cloud</a></h3>
-            <p>一张可漫游的经典著作星图：1041 句语录汇成万点星辰，星云每转过 90° 聚合成一位思想家的肖像。</p>
+            <p>一张可漫游的经典著作星图：5897 句语录汇成万点星辰，星云每转过 90° 聚合成一位思想家的肖像。</p>
             <div class="stack"><span>JavaScript</span><span>three.js</span><span>WebGL</span><span>Generative</span></div>
             <div class="project-links">
               <a href="https://github.com/Luz7818/marx-cloud" target="_blank" rel="noreferrer">GitHub 仓库</a>

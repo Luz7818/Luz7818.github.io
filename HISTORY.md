@@ -84,3 +84,23 @@
     且色相漂至 26°，故弃用，改取同色相加深值。
 - 同步：`:root` 自定义属性 14 → 16 个，AGENTS / README / ARCHITECTURE / CODE-STYLE /
   GET-START 五处计数更新，GET-START 变量清单补两个文字档。CI 两条核对本地复跑均空输出。
+
+## 2026-11-11 · Marx Cloud 卡数字对齐与键盘焦点环收口到令牌（11-11 体检 LU4-1 清账）
+
+- LU4-1：开源项目卡「思想云 · Marx Cloud」语料数字 **1041 → 5897**。基准为 Marx_Cloud 仓
+  当前实测（非转抄 README）：`npm run verify` 结尾打印「数据契约校验通过:91 位人物 /
+  5897 条语录 / 4 个分组 / 肖像平面 4 块」；同口径 node 一行命令输出 `5897 91 4 3400`。
+  该仓语料库两轮扩容 1041→2629→5897，页面数字未随动（与 11-01 LU-01 同类，traffic 卡修了、
+  marx 卡漏网）。
+- 键盘焦点环收口（深评-前端 §2.7）：`:root` 新增第 17 个令牌 `--focus-ring: 2px solid
+  var(--teal-dark)`，新增统一规则 `a:focus-visible, .button:focus-visible { outline:
+  var(--focus-ring); outline-offset: 2px }` 覆盖页面全部链接与按钮（`.button` / `.highlight` /
+  `.contact-card` / 导航 / 项目链接均为 `<a>`，一并入列）。旧两处 `3px solid
+  rgba(88,117,88,0.28)` 混色后对纸底实测 **1.45:1**（远低于 WCAG 2.2 focus 指示 3:1），
+  新环实色 `--teal-dark` 对 paper/mist/#f6f7f3/white 四种实际底色实测 7.07 / 6.65 / 6.82 /
+  7.33:1。删除两条旧规则：`.highlight:focus-visible`（highlight 全是 `<a>`，被统一规则覆盖）
+  与 `.timeline-item:focus-visible`（timeline-item 是无 tabindex 的 `<div>`，永不触发的死规则）。
+- 同步：`:root` 自定义属性 16 → 17 个，AGENTS / README / ARCHITECTURE / CODE-STYLE /
+  GET-START 五处计数更新，CODE-STYLE「错误处理与交互」补焦点环纪律一条，GET-START 变量清单补
+  `--focus-ring`；AGENTS「当前状态」行数（2115，本次改动增删相抵净 0 行）与字节数（58882）两格
+  随动。CI 两条核对本地复跑均空输出。
